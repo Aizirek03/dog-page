@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../data/repository/repository.dart';
 import 'bloc/dog_bloc.dart';
 import 'bloc/dog_event.dart';
 import 'bloc/dog_state.dart';
@@ -11,9 +9,7 @@ class DogPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => DogBloc(Repository())..add(GetDogsEvent()),
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text("Dogs"),
           centerTitle: true,
@@ -55,7 +51,6 @@ class DogPage extends StatelessWidget {
             return const SizedBox();
           },
         ),
-      ),
-    );
+      );
   }
 }
